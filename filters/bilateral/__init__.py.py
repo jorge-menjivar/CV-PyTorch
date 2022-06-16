@@ -3,8 +3,7 @@ import torch.nn.functional as F
 from ..gaussian import gaussianFilter
 
 
-def bilateralFilter(image_tensor: torch.Tensor, sigmaS: float, sigmaI: float,
-                    device: torch.device):
+def bilateralFilter(image_tensor: torch.Tensor, sigmaS: float, sigmaI: float):
     r"""Bilaterally blurs the given image.
 
     Parameters
@@ -20,7 +19,7 @@ def bilateralFilter(image_tensor: torch.Tensor, sigmaS: float, sigmaI: float,
 
     device: torch device to run the computations on.
     
-    Attributes
+    Returns
     ----------
     
     tensor : (torch.tensor)
