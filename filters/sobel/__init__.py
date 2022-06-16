@@ -4,7 +4,8 @@ import torch.nn.functional as F
 from scipy.stats import norm
 
 
-def sobel(image_tensor: torch.Tensor, sigma: float, device: torch.device):
+def sobelFilter(image_tensor: torch.Tensor, sigma: float,
+                device: torch.device):
     r"""Apply Sobel filter on image
 
     Parameters
@@ -28,29 +29,18 @@ def sobel(image_tensor: torch.Tensor, sigma: float, device: torch.device):
 
     orientation :math: \Theta = tan^{-1}{gy/gx}
     """
-    
+
     image_tensor = image_tensor.to(device).unsqueeze(0)
 
     f_wid = 4 * math.floor(sigma)
-    G = norm.pdf(
-        torch.arange(-f_wid, f_wid + 1),
-        loc=0,
-        scale=sigma
-    ).reshape(-1, 1)
+    G = norm.pdf(torch.arange(-f_wid, f_wid + 1), loc=0,
+                 scale=sigma).reshape(-1, 1)
     G = torch.from_numpy(G)
     G = torch.mul(G.T, G).type(torch.float32)
     Gx, Gy = torch.gradient(G)
 
-    gx = F.conv2d(
-        image_tensor,
-        Gx.unsqueeze(0).unsqueeze(0),
-        padding='same'
-    )
-    gy = F.conv2d(
-        image_tensor,
-        Gy.unsqueeze(0).unsqueeze(0),
-        padding='same'
-    )
+    gx = F.conv2d(image_tensor, Gx.unsqueeze(0).unsqueeze(0), padding='same')
+    gy = F.conv2d(image_tensor, Gy.unsqueeze(0).unsqueeze(0), padding='same')
 
     # sqrt(gx^2 + gy^2)
     magnitude = torch.sqrt(torch.add(gx.pow(2), gy.pow(2)))
