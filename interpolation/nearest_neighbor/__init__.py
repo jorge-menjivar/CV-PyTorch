@@ -1,12 +1,10 @@
 import torch
 
 
-def nearestNeighbor(
-    input: torch.Tensor,
-    x: float,
-    y: float,
-):
-    """Computes the nearest neighbor values of a location.
+def nearestNeighbor(input: torch.Tensor, x: float, y: float):
+    """Computes the nearest neighbor interpolation value of an
+    element at position (x, y), where x and y are both continous
+    values.
 
     Parameters
     ----------
@@ -15,6 +13,7 @@ def nearestNeighbor(
     
     x : float
         The x-position of the location to be computed
+        
     y : float
         The y-position of the location to be computed
 
