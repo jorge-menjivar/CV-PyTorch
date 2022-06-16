@@ -5,7 +5,10 @@ from scipy.ndimage import rank_filter
 import math
 
 
-def harris(input: torch.Tensor, sigma: float, low_thresh=None, radius=None):
+def harrisDetector(input: torch.Tensor,
+                   sigma: float,
+                   low_thresh=None,
+                   radius=None):
     """
     Harris corner detector
 
