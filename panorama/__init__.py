@@ -1,6 +1,6 @@
 from matplotlib import pyplot as plt
 import numpy as np
-from Runtime import PrintRuntime
+from utils.runtime import printRuntime
 import torch
 import torchvision.transforms as T
 from PIL import Image, ImageOps
@@ -153,7 +153,7 @@ def __compute_sift(image, x, y, radius):
 
 
 def __panorama2(image_left: Image.Image, image_right: Image.Image):
-    l_corners, l_y, l_x = PrintRuntime(
+    l_corners, l_y, l_x = printRuntime(
         'Harris Left',
         lambda: __perform_harris(image_left, sigma=1.4, thresh=0.04, radius=4))
 
@@ -163,7 +163,7 @@ def __panorama2(image_left: Image.Image, image_right: Image.Image):
 
     plt.show()
 
-    r_corners, r_y, r_x = PrintRuntime(
+    r_corners, r_y, r_x = printRuntime(
         'Harris Right', lambda: __perform_harris(
             image_right, sigma=1.4, thresh=0.04, radius=4))
 
@@ -173,15 +173,15 @@ def __panorama2(image_left: Image.Image, image_right: Image.Image):
 
     plt.show()
 
-    sift_left, addr_left = PrintRuntime(
+    sift_left, addr_left = printRuntime(
         'SIFT Left', lambda: __compute_sift(image_left, l_x, l_y, 16))
-    sift_right, addr_right = PrintRuntime(
+    sift_right, addr_right = printRuntime(
         'SIFT Right', lambda: __compute_sift(image_right, r_x, r_y, 16))
 
-    distance = PrintRuntime('Compute Distance',
+    distance = printRuntime('Compute Distance',
                             lambda: dist2(sift_left, sift_right))
 
-    pairs = PrintRuntime('Find Matches',
+    pairs = printRuntime('Find Matches',
                          lambda: __find_matches(distance, 0.017))
 
     pairs_length = pairs[0].shape[0]
@@ -209,7 +209,7 @@ def __panorama2(image_left: Image.Image, image_right: Image.Image):
     # plt.savefig('output/pairs_right.png')
     plt.show()
 
-    r_output = PrintRuntime(
+    r_output = printRuntime(
         'RANSAC', lambda: ransac(pairs, addr_left, addr_right, 4, 2000))
 
     homography = r_output[0]
@@ -238,7 +238,7 @@ def __panorama2(image_left: Image.Image, image_right: Image.Image):
     # plt.savefig('output/inliers_right.png')
     plt.show()
 
-    merged = PrintRuntime(
+    merged = printRuntime(
         'Merging Images', lambda: __merge_images(T.ToTensor()(image_left),
                                                  T.ToTensor()
                                                  (image_right), homography))
