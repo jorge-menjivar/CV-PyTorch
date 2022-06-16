@@ -1,6 +1,6 @@
 import torch
 import torch.nn.functional as F
-from ..gaussian import gaussianFilter
+from filters.gaussian import gaussianFilter
 
 
 def bilateralFilter(image_tensor: torch.Tensor, sigmaS: float, sigmaI: float):
