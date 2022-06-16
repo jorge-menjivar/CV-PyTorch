@@ -3,18 +3,23 @@ from math import floor
 
 
 def bilinearInterpolation(image_tensor: torch.Tensor, x: float, y: float):
-    """Computes the bilinearly interpolated value of a pixel.
+    """Computes the bilinearly interpolated value of an element at
+    position (x, y), where x and y are both continous values.
 
     Parameters
     ----------
-    new_x : int
-        The x-position of the pixel to be computed
-    new_y : int
-        The y-position of the pixel to be computed
+    input: torch.Tensor
+        Tensor that contains all the values.
+
+    x : float
+        The x-position of the location to be computed
+
+    y : float
+        The y-position of the location to be computed
 
     Returns
     -------
-    The value of pixel at position (new_x, new_y)
+    The value of element at position (x, y)
 
     Notes
     -----
