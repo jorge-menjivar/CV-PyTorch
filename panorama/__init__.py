@@ -1,11 +1,13 @@
 from matplotlib import pyplot as plt
 import numpy as np
+from feature_matching.sift import sifTransform
+from utils.difference import dist2
 from utils.runtime import printRuntime
 import torch
 import torchvision.transforms as T
 from PIL import Image, ImageOps
-from corners import find_sift, harris, dist2
-from outliers import ransac
+from corners.harris import harrisDetector
+from outliers.ransac import ransac
 
 from skimage.transform import warp
 
@@ -16,7 +18,7 @@ def __perform_harris(image, sigma, thresh, radius):
     grayscale = ImageOps.grayscale(image)
     image_tensor = T.ToTensor()(grayscale)
 
-    corners, y, x = harris(image_tensor, sigma, thresh, radius)
+    corners, y, x = harrisDetector(image_tensor, sigma, thresh, radius)
     return corners, y, x
 
 
@@ -147,7 +149,7 @@ def __compute_sift(image, x, y, radius):
         circles = torch.cat((circles, circle))
         addresses.append([int(x[i]), int(y[i])])
 
-    sift = find_sift(image_tensor, circles, device, enlarge_factor=1)
+    sift = sifTransform(image_tensor, circles, device, enlarge_factor=1)
 
     return sift, addresses
 
@@ -178,11 +180,15 @@ def __panorama2(image_left: Image.Image, image_right: Image.Image):
     sift_right, addr_right = printRuntime(
         'SIFT Right', lambda: __compute_sift(image_right, r_x, r_y, 16))
 
-    distance = printRuntime('Compute Distance',
-                            lambda: dist2(sift_left, sift_right))
+    distance = printRuntime(
+        'Compute Distance',
+        lambda: dist2(sift_left, sift_right),
+    )
 
-    pairs = printRuntime('Find Matches',
-                         lambda: __find_matches(distance, 0.017))
+    pairs = printRuntime(
+        'Find Matches',
+        lambda: __find_matches(distance, 0.017),
+    )
 
     pairs_length = pairs[0].shape[0]
     print(f'Pairs: {pairs_length}')
@@ -210,7 +216,9 @@ def __panorama2(image_left: Image.Image, image_right: Image.Image):
     plt.show()
 
     r_output = printRuntime(
-        'RANSAC', lambda: ransac(pairs, addr_left, addr_right, 4, 2000))
+        'RANSAC',
+        lambda: ransac(pairs, addr_left, addr_right, 4, 2000),
+    )
 
     homography = r_output[0]
     inliers = r_output[1]
