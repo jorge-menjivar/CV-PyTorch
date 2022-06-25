@@ -1,8 +1,8 @@
-# PyTorch-CV
+# PyTorch-CV-Tools
 
 ## Use Cases
 
-PyTorch-CV is a collection of tools to help facilitate computer vision operations.
+PyTorch-CV-Tools is a collection of tools to help facilitate computer vision operations.
 
 Some of the tools in this library can be very useful to pre-process images before feeding to deep networks. However, the uses are not limited to pre-processing, you can perform a wide variety of operations that are helpful in many fields of work.
 
