@@ -1,4 +1,4 @@
-import panorama
+import panorama.panorama as panorama
 
 from PIL import Image
 

@@ -1,12 +1,12 @@
 from matplotlib import pyplot as plt
 import numpy as np
+from corners.harris import harrisDetector
 from feature_matching.sift import sifTransform
 from utils.difference import dist2
 from utils.runtime import printRuntime
 import torch
 import torchvision.transforms as T
 from PIL import Image, ImageOps
-from corners.harris import harrisDetector
 from outliers.ransac import ransac
 
 from skimage.transform import warp

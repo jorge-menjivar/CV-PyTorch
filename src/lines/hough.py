@@ -4,14 +4,12 @@ import torch
 
 
 def houghTransform(input: torch.Tensor):
-    r"""Apply Hough Transorm to find lines in the image
-
+    r"""Apply Hough Transform to find lines in the image
     Parameters
     ----------
     input : torch.Tensor
         `Canny` peaks tensor in the shape of (C, H, W), to which Hough
         Transform will be applied to.
-
     Returns
     ----------
     hough_space : (Torch.Tensor)
@@ -63,7 +61,6 @@ def houghTransform(input: torch.Tensor):
 
 def findHoughLines(hough_space: torch.Tensor, threshold):
     r"""Find lines from the give Hough space
-
     Parameters
     ----------
     hough_space : torch.Tensor
@@ -71,7 +68,6 @@ def findHoughLines(hough_space: torch.Tensor, threshold):
     
     threshold: float
         The sensitivity to finding lines
-
     Returns
     ----------
     lines : list[Tensor]

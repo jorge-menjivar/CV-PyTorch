@@ -24,7 +24,7 @@ def harrisDetector(input: torch.Tensor,
         The low bound sensitivity of which corners to return.
 
     radius : float (optional)
-        Radius of region considered in non-maximal suppressio.n
+        Radius of region considered in non-maximal suppression
 
     Returns
     -------
