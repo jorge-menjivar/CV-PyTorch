@@ -102,5 +102,5 @@ This is an example of 3 images stitched together:
 [issues-url]: https://github.com/jorge-menjivar/CV-PyTorch/issues
 [license]: https://img.shields.io/github/license/jorge-menjivar/CV-PyTorch?style=for-the-badge
 [license-url]: https://github.com/jorge-menjivar/CV-PyTorch/blob/main/LICENSE
-[pypi]: https://img.shields.io/pypi/v/CV-PyTorch?style=for-the-badge
-[pypi-url]: https://pypi.org/project/CV-PyTorch/
+[pypi]: https://img.shields.io/pypi/v/cv-pytorch?style=for-the-badge
+[pypi-url]: https://pypi.org/project/cv-pytorch/
