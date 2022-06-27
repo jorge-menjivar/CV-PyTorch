@@ -16,7 +16,7 @@ The re-implementation of these tools in PyTorch has the advantage of being signi
 
 <div>
     <img src="./sample_images/uttower/harris_left.png" width="300"/>
-    <img src="./sample_images/uttower/harris_right.png" width="300"/>
+    <img src="https://raw.githubusercontent.com/jorge-menjivar/PyTorch-CV-Tools/main/sample_images/uttower/harris_right.png" width="300"/>
 </div>
 
 ## Pair Matching (SIFT)
