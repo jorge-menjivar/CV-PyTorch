@@ -1,5 +1,5 @@
 [![Issues][issues]][issues-url]
-[![PyPi][pypi]][license-url]
+[![PyPi][pypi]][pypi-url]
 [![MIT License][license]][license-url]
 
 <!-- [![Contributors][contributors]][contributors-url] -->
