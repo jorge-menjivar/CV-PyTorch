@@ -2,7 +2,9 @@
 
 ## Installation
 
-`pip install pytorch-cv-tools`
+```sh
+pip install pytorch-cv-tools
+```
 
 ## Use Cases
 
