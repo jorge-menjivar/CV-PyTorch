@@ -1,5 +1,9 @@
 # PyTorch-CV-Tools
 
+## Installation
+
+`pip install pytorch-cv-tools`
+
 ## Use Cases
 
 PyTorch-CV-Tools is a collection of tools to help facilitate computer vision operations.
