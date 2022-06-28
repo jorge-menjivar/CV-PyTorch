@@ -1,5 +1,6 @@
 [![Issues][issues]][issues-url]
 [![PyPi][pypi]][pypi-url]
+[![Conda][conda]][conda-url]
 [![MIT License][license]][license-url]
 
 <!-- [![Contributors][contributors]][contributors-url] -->
@@ -104,3 +105,5 @@ This is an example of 3 images stitched together:
 [license-url]: https://github.com/jorge-menjivar/CV-PyTorch/blob/main/LICENSE
 [pypi]: https://img.shields.io/pypi/v/cv-pytorch?style=for-the-badge
 [pypi-url]: https://pypi.org/project/cv-pytorch/
+[conda]: https://img.shields.io/conda/v/jmenjivar/cv-pytorch?label=conda&style=for-the-badge
+[conda-url]: https://anaconda.org/jmenjivar/cv-pytorch

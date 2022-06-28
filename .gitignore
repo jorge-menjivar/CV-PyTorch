@@ -129,5 +129,7 @@ dmypy.json
 .pyre/
 
 # Distribution
+meta.yaml
 pyproject.toml
 /dist
+build.sh
