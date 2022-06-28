@@ -15,6 +15,12 @@
 pip install cv-pytorch
 ```
 
+or
+
+```sh
+conda install -c jmenjivar cv-pytorch
+```
+
 ## Use Cases
 
 CV-PyTorch is a collection of tools to help facilitate computer vision operations.
