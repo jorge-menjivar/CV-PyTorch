@@ -132,3 +132,5 @@ dmypy.json
 meta.yaml
 /dist
 build.sh
+conda_build_config.yaml
+/conda_dist
