@@ -1,6 +1,6 @@
 import torch
 
-from interpolation.nearest_neighbor import nearestNeighbor
+from cv_pytorch.interpolation.nearest_neighbor import nearestNeighbor
 
 
 def nnScale(

@@ -1,7 +1,7 @@
 import torch
 import numpy as np
 
-from filters.sobel import sobelFilter
+from cv_pytorch.filters.sobel import sobelFilter
 
 
 def sifTransform(input: torch.Tensor,

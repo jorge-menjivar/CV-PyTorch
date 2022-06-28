@@ -1,5 +1,5 @@
 import torch
-from filters.gaussian import gaussianBlur
+from cv_pytorch.filters.gaussian import gaussianBlur
 
 
 def sharpenFilter(input: torch.Tensor, sigma: float, alpha: float, device):

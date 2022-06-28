@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=62.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cv-pytorch"
+version = "0.0.7"
+authors = [
+  { name="Jorge Menjivar", email="jorgemenjivar1997@gmail.com" },
+]
+description = "A collection of tools to help facilitate computer vision operations."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies=[
+    "matplotlib",
+    "numpy",
+    "scipy",
+    "scikit-image",
+    "torch >= 1.11.0",
+    "torchvision >= 0.12.0"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/jorge-menjivar/CV-PyTorch"
+"Bug Tracker" = "https://github.com/jorge-menjivar/CV-PyTorch/issues"

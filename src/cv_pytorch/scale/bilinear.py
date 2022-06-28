@@ -1,6 +1,6 @@
 import torch
 
-from interpolation.bilinear import bilinearInterpolation
+from cv_pytorch.interpolation.bilinear import bilinearInterpolation
 
 
 def bilinearScale(input: torch.Tensor, w_scale: float, h_scale: float):

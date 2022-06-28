@@ -1,4 +1,4 @@
-import torch_cv_tools.panorama.panorama as panorama
+import cv_pytorch.panorama.panorama as panorama
 
 from PIL import Image
 

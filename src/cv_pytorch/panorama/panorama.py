@@ -1,13 +1,13 @@
 from matplotlib import pyplot as plt
 import numpy as np
-from corners.harris import harrisDetector
-from feature_matching.sift import sifTransform
-from utils.difference import dist2
-from utils.runtime import printRuntime
+from cv_pytorch.corners.harris import harrisDetector
+from cv_pytorch.feature_matching.sift import sifTransform
+from cv_pytorch.utils.difference import dist2
+from cv_pytorch.utils.runtime import printRuntime
 import torch
 import torchvision.transforms as T
 from PIL import Image, ImageOps
-from outliers.ransac import ransac
+from cv_pytorch.outliers.ransac import ransac
 
 from skimage.transform import warp
 
@@ -87,25 +87,6 @@ def __merge_images(image_1: torch.Tensor, image_2: torch.Tensor,
         out_shape = height + 2 * margin_v, width + 2 * margin_h
         glob_trfm = np.eye(3)
         glob_trfm[:2, 2] = -margin_h, -margin_v
-
-        #         global_img = torch.tensor([])
-        # for img, trfm in zip(img_list, trfm_list):
-        #     im = torch.from_numpy(
-        #         warp(
-        #             img, -trfm.dot(glob_trfm),
-        #             output_shape=out_shape,
-        #             mode="constant",
-        #             cval=torch.nan
-        #         )
-        #     )
-
-        #     torch.cat((global_img, im))
-
-        # all_nan_mask = torch.all(
-        #     [torch.isnan(img) for img in global_img],
-        #     dim=0
-        # )
-        # global_img_list[0][all_nan_mask] = 0.
 
         global_img_list = [
             warp(img,

@@ -1,7 +1,7 @@
 from random import sample
 import torch
 
-from homography.dlt import dlTransformation
+from cv_pytorch.homography.dlt import dlTransformation
 
 
 def ransac(pairs: tuple[torch.Tensor, torch.Tensor],
