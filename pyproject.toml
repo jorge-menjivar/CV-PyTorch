@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cv-pytorch"
-version = "0.0.7"
+version = "0.0.8"
 authors = [
   { name="Jorge Menjivar", email="jorgemenjivar1997@gmail.com" },
 ]
