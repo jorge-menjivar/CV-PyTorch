@@ -3,10 +3,6 @@
 [![Conda][conda]][conda-url]
 [![MIT License][license]][license-url]
 
-<!-- [![Contributors][contributors]][contributors-url] -->
-<!-- [![Forks][forks]][forks-url]s -->
-<!-- [![Stargazers][stars]][stars-url] -->
-
 # CV-PyTorch
 
 ## Installation
